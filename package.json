@@ -5,10 +5,15 @@
     "mcgoooo-world": "bin/mcgoooo-world.js"
   },
   "scripts": {
-    "build": "tsc",
     "watch": "tsc -w",
-    "test": "jest",
-    "cdk": "cdk"
+    "cdk": "cdk",
+    "build": "turbo run build",
+    "clean": "turbo run clean",
+    "dev": "turbo run dev",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "check-types": "turbo run check-types"
   },
   "devDependencies": {
     "@types/jest": "^29.5.14",
@@ -17,10 +22,21 @@
     "ts-jest": "^29.2.5",
     "aws-cdk": "2.178.2",
     "ts-node": "^10.9.2",
-    "typescript": "~5.6.3"
+    "typescript": "~5.6.3",
+      "prettier": "^3.5.0",
+    "turbo": "^2.4.2"
   },
   "dependencies": {
     "aws-cdk-lib": "2.178.2",
     "constructs": "^10.0.0"
-  }
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "packageManager": "npm@10.9.2",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
 }
+
