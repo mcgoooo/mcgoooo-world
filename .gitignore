@@ -6,3 +6,17 @@ node_modules
 # CDK asset staging directory
 .cdk.staging
 cdk.out
+
+
+.DS_Store
+node_modules
+.turbo
+*.log
+.next
+dist
+dist-ssr
+*.local
+.env
+.cache
+server/dist
+public/dist
