@@ -2,13 +2,13 @@
   "name": "kitchen-sink",
   "private": true,
   "scripts": {
-    "build": "turbo run build",
-    "clean": "turbo run clean",
-    "dev": "turbo run dev",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "lint": "turbo run lint",
-    "test": "turbo run test",
-    "check-types": "turbo run check-types"
+    "build": "npx turbo run build",
+    "clean": "npx turbo run clean",
+    "dev": "npx turbo run dev",
+    "format": "npx prettier --write \"**/*.{ts,tsx,md}\"",
+    "lint": "npx turbo run lint",
+    "test": "npx turbo run test",
+    "check-types": "npx turbo run check-types"
   },
   "devDependencies": {
     "prettier": "^3.5.0",
