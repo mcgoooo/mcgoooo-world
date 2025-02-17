@@ -22,11 +22,11 @@
     }
   },
   "scripts": {
-    "build": "bunchee",
-    "dev": "bunchee --watch",
-    "lint": "eslint src/",
-    "check-types": "tsc --noEmit",
-    "test": "jest"
+    "build": "npx bunchee",
+    "dev": "npx bunchee --watch",
+    "lint": "npx eslint src/",
+    "check-types": "npx tsc --noEmit",
+    "test": "npx jest"
   },
   "jest": {
     "preset": "@repo/jest-presets/node"
