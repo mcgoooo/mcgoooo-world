@@ -3,9 +3,9 @@ import styles from "./page.module.css";
 export default function Home() {
   return (
     <div className={styles.page}>
-      OLA
+      <h1>OLA</h1>
       <br/>
-      BOM DIA
+      <h2>BOM DIA</h2>
     </div>
   );
 }
