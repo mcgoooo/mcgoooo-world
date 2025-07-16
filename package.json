@@ -9,6 +9,9 @@
 		"lint": "next lint",
 		"deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
 		"deploy:version": "opennextjs-cloudflare build && npx wrangler versions upload",
+    "e2e": "npx playwright test",
+    "e2e:headed": "npx playwright test --ui",
+    "e2e:ci": "npm run playwright:install && npm run e2e",
     "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
 		"cf-typegen": "wrangler types --env-interface CloudflareEnv ./cloudflare-env.d.ts"
 	},
@@ -25,6 +28,7 @@
 		"@types/react-dom": "^19",
 		"eslint": "^9",
 		"eslint-config-next": "15.3.5",
+    "@playwright/test": "^1.54.1",
 		"typescript": "^5",
 		"wrangler": "^4.24.3"
 	}
