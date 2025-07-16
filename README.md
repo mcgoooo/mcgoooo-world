@@ -9,6 +9,7 @@ I am a frequent developer of Next.js, but feel the lock in for some features cau
 For personal projects i was also finding aws expensive on the AWS Fargate/EC2 architecture i had for [minesweeper](https://github.com/mcgoooo/mine-sweeper/tree/master/infra#minesweeper-infra)
 
 
+
 On Cloudflare, there is two ways to deploy Next.js<br/>
 [cloudflare pages](https://developers.cloudflare.com/pages/framework-guides/nextjs/ssr/)<br/>
 and the [new cloudflare workers](https://developers.cloudflare.com/workers/framework-guides/web-apps/nextjs/). <br/> 
@@ -36,6 +37,7 @@ I have general patterns i follow, and a wish list of features when it comes to h
 
 we shall use the default architecture of cloudflare workers initially, which is quite nice and gives us a lot for free, such as preview environments.
 
+
 we will use the following services
 
 # deployments
@@ -62,6 +64,7 @@ TODO CYPRESS/PLAYWRIGHT etc
 This will be considered, a single developer working by himself, proving the concept,w ith full access to all developmental sharp knives, as if the main domain and product was not live yet, bootstrap stage. 
 
 This will be considered a throwaway, but as this is personal, we will keep it for the next stage. in production, prototypes never make it to production, right?
+
 
 
   ❌ = not done
