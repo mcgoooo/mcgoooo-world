@@ -5,7 +5,7 @@ export default function Home() {
     <div className={styles.page}>
       <h1>OLA</h1>
       <br/>
-      <h2>BOM DIA</h2>
+      <h2>BOM DIA!!</h2>
     </div>
   );
 }
