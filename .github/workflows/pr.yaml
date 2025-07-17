@@ -1,17 +1,30 @@
-name: create Preview Cloudflare worker
+name: Deploy preview & e2e
 on:
   pull_request:
     types: [opened, synchronize, reopened, closed]
 jobs:
-  deploy:
+  deploy-preview-version:
     runs-on: ubuntu-latest
-    name: Deploy Preview Version (check output for url) # TODO abstract url for playwright
+    name: Deploy Preview Version
+    outputs:
+      url: ${{ steps.deploy.outputs.url }}
     steps:
       - uses: actions/checkout@v4
-      - name: install
-        run: npm install
+      - name: Install
+        run: npm ci
       - name: Deploy
+        id: deploy
+        run: | 
+          npm run deploy:version
+          PREVIEW_URL=$(cat /home/runner/.config/.wrangler/logs/* | sed -n '/workers.dev/p' | sed 's/Version Preview URL: //')
+          echo "url=$PREVIEW_URL" >> "$GITHUB_OUTPUT"          
+          echo "PREVIEW_URL: $PREVIEW_URL"
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
-        run: npm run deploy:version
+  e2e:
+    needs: deploy-preview-version
+    uses: mcgoooo/mcgoooo-world/.github/workflows/e2e.yaml@hook-up-playwright-ci
+    with:
+      playwright-base-url: ${{needs.deploy-preview-version.outputs.url}}
+      
