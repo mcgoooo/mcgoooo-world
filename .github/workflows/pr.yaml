@@ -5,7 +5,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    name: Deploy Versions
+    name: Deploy Preview Version (check output for url) # TODO abstract url for playwright
     steps:
       - uses: actions/checkout@v4
       - name: install
