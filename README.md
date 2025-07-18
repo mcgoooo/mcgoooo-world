@@ -77,7 +77,6 @@ This will be considered a throwaway, but as this is personal, we will keep it fo
  - [✅] get deployments working on https://mcgooo.world
  - [✅] get deployments working on preview environments
  - [❌] move to a mono-repo setup
- - [⏳] get edge and caching setup (under 1 sec to australia, needs faster)
  - [⏳] get unit, e2e, cypress and smoke tests setup
  - [❌] Supabase setup
  - [⏳] Github actions
