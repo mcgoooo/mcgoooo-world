@@ -1,36 +1,16 @@
 {
-	"name": "mcgoooo-world",
-	"version": "0.1.0",
-	"private": true,
-	"scripts": {
-		"dev": "next dev --turbopack",
-		"build": "next build",
-		"start": "next start",
-		"deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
-		"deploy:version": "opennextjs-cloudflare build && npx wrangler versions upload",
-    "e2e": "npx playwright test",
-    "e2e:headed": "npx playwright test --ui",
-    "e2e:ci": "npm run e2e",
-    "lint": "next lint",
-    "playwright:install": "npx playwright install --with-deps chromium",
-    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
-		"cf-typegen": "wrangler types --env-interface CloudflareEnv ./cloudflare-env.d.ts"
-	},
-	"dependencies": {
-		"@opennextjs/cloudflare": "^1.5.1",
-		"next": "15.3.5",
-		"react": "^19.0.0",
-		"react-dom": "^19.0.0"
-	},
-	"devDependencies": {
-		"@eslint/eslintrc": "^3",
-		"@types/node": "^20.19.7",
-		"@types/react": "^19",
-		"@types/react-dom": "^19",
-		"eslint": "^9",
-		"eslint-config-next": "15.3.5",
-    "@playwright/test": "^1.54.1",
-		"typescript": "^5",
-		"wrangler": "^4.24.3"
-	}
+  "private": true,
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint"
+  },
+  "devDependencies": {
+    "turbo": "^2.5.5"
+  },
+  "packageManager": "npm@10.0.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
 }
