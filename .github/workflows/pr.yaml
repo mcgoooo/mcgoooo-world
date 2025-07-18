@@ -24,7 +24,7 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
   e2e:
     needs: deploy-preview-version
-    uses: mcgoooo/mcgoooo-world/.github/workflows/e2e.yaml@hook-up-playwright-ci
+    uses: mcgoooo/mcgoooo-world/.github/workflows/e2e.yaml@main
     with:
       playwright-base-url: ${{needs.deploy-preview-version.outputs.url}}
       
