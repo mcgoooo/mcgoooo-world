@@ -5,13 +5,17 @@ on:
 jobs:
   deploy-preview-version:
     runs-on: ubuntu-latest
-    name: Deploy Preview Version
+    name: Test & Deploy Preview Version
     outputs:
       url: ${{ steps.deploy.outputs.url }}
     steps:
       - uses: actions/checkout@v4
       - name: Install
         run: npm ci
+      - name: Test
+        run: npm run test
+      - name: Lint
+        run: npm run lint
       - name: Deploy
         id: deploy
         run: | 
@@ -24,6 +28,7 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
   e2e:
     needs: deploy-preview-version
+    name: E2E Tests
     uses: mcgoooo/mcgoooo-world/.github/workflows/e2e.yaml@main
     with:
       playwright-base-url: ${{needs.deploy-preview-version.outputs.url}}
