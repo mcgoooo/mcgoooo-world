@@ -92,10 +92,10 @@ This will be considered a throwaway. in production, prototypes never make it to 
  - [✅] deployments working on https://mcgooo.world
  - [✅] Deployments working on preview environments
  - [✅] E2E, Playwright setup
- - [⏳] Linting, Jest etc
- - [❌] Supabase setup
- - [⏳] Github actions
+ - [✅] Linting, Jest etc
+ - [✅] Github actions
  - [⏳] Process pipeline and documentation (passing tests before merge etc)
+ - [❌] Supabase setup
  - [❌] Get auth and users working via Supabase
  - [❌] Style, and daisyui or tailwind
  - [❌] Choose first app
