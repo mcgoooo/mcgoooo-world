@@ -1,3 +1,24 @@
+# Elevator Pitch
+
+A personal website of Andrew Hilton, also known as McGoooo for a couple of decades in my personal life.  
+It will primarily be centred around, Bikes, Maps and Music to begin with. 
+
+Primarily as an outlet for storing and displaying my own creative output. 
+
+# Getting Started
+
+##### Copy dev ENV vars, and then edit.
+```
+cp .dev.vars.example .dev.vars
+```
+
+install prerequisites
+```bash
+npm install
+npm run playwright:install
+```
+
+
 # Motivation
 
 I want a personal website for multiple side projects, to do some self directed learning, and hopefully show some development on my personal github, as it's usually locked behind corporate walls.
@@ -40,7 +61,7 @@ we shall use the default architecture of cloudflare workers initially, which is 
 
 we will use the following services
 
-# deployments
+# Deployments
 
 Deployments are Handled by github actions and can be seen in the `package.json`.
 
@@ -48,34 +69,21 @@ Deployments should be kept to a single line in the `package.json` and should hav
 
 It uses cloudflare wrangler, and the open-next cloudflare adapter for deployment, more info [HERE](https://opennext.js.org/cloudflare)
 
-# preview deployments
+# Preview deployments
 
 there will be a preview deployment made for each app on pull request, as can be seen in the github actions output, this will also run the playwright end to end tests, and a cloudflare worker. This means you can test your changes on a live server on all pull requests, check the github aciton for output. 
 
-# testing 
+# Testing 
 
 Playwright tests run on all pull requests, and are also able to run locally, check the artifacts for output. If your PR fails, there should be a video and trace attached to the report in github actions. 
 
-## Getting Started
 
-##### copy dev ENV vars, and then edit.
-Comments should point you to where to get them, how to set
-
-```
-cp .dev.vars.example .dev.vars
-```
-
-install prerequisites
-```bash
-npm install
-npm run playwright:install
-```
 
 # Overview of development 
 
-## step 1
+## Step 1
 
-### get infra working, develop first app
+### Get infra working, develop first app
 
 This will be considered, a single developer working by himself, proving the concept, with full access to all developmental sharp knives, as if the main domain and product was not live yet, bootstrap stage. 
 
@@ -87,7 +95,7 @@ This will be considered a throwaway. in production, prototypes never make it to 
   ⏳ = in progress
   ✅ = done
 
- - [❌] Document cold start for new developer
+ - [⏳] Document cold start for new developer
  - [⏳] Document technology
  - [✅] deployments working on https://mcgooo.world
  - [✅] Deployments working on preview environments
