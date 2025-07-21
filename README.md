@@ -7,7 +7,7 @@ Primarily as an outlet for storing and displaying my own creative output.
 
 # Getting Started
 
-##### Copy dev ENV vars, and then edit.
+## Copy dev ENV vars, and then edit.
 ```
 cp .dev.vars.example .dev.vars
 ```
@@ -16,6 +16,28 @@ install prerequisites
 ```bash
 npm install
 npm run playwright:install
+```
+
+
+## Testing 
+
+#### Jest - Unit Test
+```
+npm run test 
+```
+### E2E
+
+Ensure the server is running before starting the E2E. These will be run by playwright, be sure to run `npm run playwright:install` to install prerequisites. 
+
+Videos and traces will be kept only on failures. You can change these settings in the [playwright.config.ts](playwright.config.ts), and it might be wise to familiar yourself with this config. 
+
+#### Playwright - E2E - With UI
+```
+npm run e2e:headed
+```
+#### Playwright - E2E - CLI
+```
+npm run e2e
 ```
 
 
@@ -73,10 +95,6 @@ It uses cloudflare wrangler, and the open-next cloudflare adapter for deployment
 
 there will be a preview deployment made for each app on pull request, as can be seen in the github actions output, this will also run the playwright end to end tests, and a cloudflare worker. This means you can test your changes on a live server on all pull requests, check the github aciton for output. 
 
-# Testing 
-
-Playwright tests run on all pull requests, and are also able to run locally, check the artifacts for output. If your PR fails, there should be a video and trace attached to the report in github actions. 
-
 
 
 # Overview of development 
@@ -95,7 +113,7 @@ This will be considered a throwaway. in production, prototypes never make it to 
   ⏳ = in progress
   ✅ = done
 
- - [⏳] Document cold start for new developer
+ - [⏳ ] Document cold start for new developer
  - [⏳] Document technology
  - [✅] deployments working on https://mcgooo.world
  - [✅] Deployments working on preview environments
