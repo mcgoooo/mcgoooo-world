@@ -27,7 +27,9 @@ npm run test
 ```
 ### E2E
 
-Ensure the server is running before starting the E2E. These will be run by playwright, be sure to run `npm run playwright:install` to install prerequisites. 
+Ensure the server is running before starting the E2E. 
+
+These will be run by playwright, be sure to run `npm run playwright:install` to install prerequisites. 
 
 Videos and traces will be kept only on failures. You can change these settings in the [playwright.config.ts](playwright.config.ts), and it might be wise to familiar yourself with this config. 
 
