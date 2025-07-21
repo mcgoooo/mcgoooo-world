@@ -33,7 +33,7 @@ I have general patterns i follow, and a wish list of features when it comes to h
  - On deploy to `main`, the `production` worker gets updated
  - Preview environments are created, and tests are run on them via github action
  - the deployment method should be a single script in `package.json` and able to be run locally as well on github, for debug, prototype and everything is on 🔥
- - it should be hosted in a monorepo, which each app having a subdomain
+ - it should eventually, when the time requires be a  mono-repo, which each product domain having it's own subdomain
 
 we shall use the default architecture of cloudflare workers initially, which is quite nice and gives us a lot for free, such as preview environments.
 
@@ -46,24 +46,40 @@ Deployments are Handled by github actions and can be seen in the `package.json`.
 
 Deployments should be kept to a single line in the `package.json` and should have instructions for local deployment if necessary.
 
-It uses cloudflare wrangler, and the open-next cloudflare adapter for deployment as seen by TODO - INSERT DOC LINK TO OPEN NEXT ADAPTER
+It uses cloudflare wrangler, and the open-next cloudflare adapter for deployment, more info [HERE](https://opennext.js.org/cloudflare)
 
 # preview deployments
 
-there will be a preview deployment made for each app, as can be seen in the github actions output. the preview environment will deploy, and then cypress tests will. be run TODO - INSERT CYPRESS ETC
+there will be a preview deployment made for each app on pull request, as can be seen in the github actions output, this will also run the playwright end to end tests, and a cloudflare worker. This means you can test your changes on a live server on all pull requests, check the github aciton for output. 
 
 # testing 
 
-TODO CYPRESS/PLAYWRIGHT etc
+Playwright tests run on all pull requests, and are also able to run locally, check the artifacts for output. If your PR fails, there should be a video and trace attached to the report in github actions. 
 
-# Overview of development steps
+## Getting Started
+
+##### copy dev ENV vars, and then edit.
+Comments should point you to where to get them, how to set
+
+```
+cp .dev.vars.example .dev.vars
+```
+
+install prerequisites
+```bash
+npm install
+npm run playwright:install
+```
+
+# Overview of development 
 
 ## step 1
-### Prototype stage
 
-This will be considered, a single developer working by himself, proving the concept,w ith full access to all developmental sharp knives, as if the main domain and product was not live yet, bootstrap stage. 
+### get infra working, develop first app
 
-This will be considered a throwaway, but as this is personal, we will keep it for the next stage. in production, prototypes never make it to production, right?
+This will be considered, a single developer working by himself, proving the concept, with full access to all developmental sharp knives, as if the main domain and product was not live yet, bootstrap stage. 
+
+This will be considered a throwaway. in production, prototypes never make it to production, right? the non prototype will be within a mono repo.
 
 
 
@@ -71,70 +87,25 @@ This will be considered a throwaway, but as this is personal, we will keep it fo
   ⏳ = in progress
   ✅ = done
 
- - [⏳] Choose technology
- - [❌] document cold start for new developer
- - [⏳] document technology
- - [✅] get deployments working on https://mcgooo.world
- - [✅] get deployments working on preview environments
- - [❌] move to a mono-repo setup
- - [⏳] get unit, e2e, cypress and smoke tests setup
+ - [❌] Document cold start for new developer
+ - [⏳] Document technology
+ - [✅] deployments working on https://mcgooo.world
+ - [✅] Deployments working on preview environments
+ - [✅] E2E, Playwright setup
+ - [⏳] Linting, Jest etc
  - [❌] Supabase setup
  - [⏳] Github actions
- - [⏳] process pipeline and documentation (passing tests before merge etc)
- -  [❌] get auth and users working via Supabase
-  - [❌] style, and daisyui or tailwind
- - [❌] (stretch) add a kit to make a new next.js udner a sub domain in one command
+ - [⏳] Process pipeline and documentation (passing tests before merge etc)
+ - [❌] Get auth and users working via Supabase
+ - [❌] Style, and daisyui or tailwind
+ - [❌] Choose first app
 
-## step 2
-### first app
 
-this stage will represent past the prototype stage, and will be considered an mvp. By this stage, the individual developer prototype stage would be over, and the project should be able to introduce other developers, if this was not a toy.
-
-Development should be easy to onboard someone new as a developer, and have all the necessary tools to easily make a new app.
-
-the first app will be in the same vain as [sort Your Music](http://sortyourmusic.playlistmachinery.com/) and [Tune My Music](https://www.tunemymusic.com/) and it will be called `delete your music` and will have one purpose. 
-
-This purpose is to easily delete, a lot of playlists. The motivation behind this is, i have over 800 playlists, duplicated across multiple platforms. Now i use Tidal for DJ'ing via Rekordbox. I want to be able to have a fully clean tidal, and be careful about when i import, and to be able to easily delete playlists, on bulk. This is so it shows up in Rekordbox easily, and i can make dj'ing easier.
+### app ideas
+The app ideas can be found in [ideas/README.md](ideas/README.md)
 
 
 
-## step 3
-deploy the above, as an actual app, and do minor promotion.
 
 
-# further app ideas (in order i would build)
-
-### second app
-
-MapMyGpx
-
-be able to export gpx from Strava and Komoot, and display them on a map and you can choose either open street map, google or apple, if all possible. This is to help a 1100 person whatsapp community i am part of, to be able to plan group rides together. 
-
-### third app
-
-MapMyMusic
-
-using the two above features, take [`spotify`,`tidal`] currently playing and save that against your user. find a way to track your location, and take your currently playing, so you can remember songs that where playing, by location.
-
-This is to make an interesting mashup. We do a ride every Tuesday, use this to map the ride. On the map, will show what song was playing when, so you can remember where you where on the ride, and get the song name by that. 
-
-This may need to take a .cue file from rekordbox, but mvp will use spotify.
-
-### fourth app
-
-BackupMyPhotos
-
-I want to backup my photos, And do it myself, as these are valuable memories. Build a personal photo upload. Take the metadata, get the location. Put it on the `mapMyMusic` as well.
-
-Give the `lisbora` cycling community a way to upload photos.
-
-We then have a full interactive map of the ride, with photos, location, and the music that was playing then. 
-
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-```
 
