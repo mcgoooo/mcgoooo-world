@@ -1,16 +1,12 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Major_Mono_Display } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const majorMonoDisplay = Major_Mono_Display({
+  weight: '400', // only one weight available for this font
+  subsets: ['latin'],
+})
 
 export const metadata: Metadata = {
   title: "Mcgooo world",
@@ -23,8 +19,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+    <html lang="en" data-theme="dim" className="bg-mcgoo-orange-to-purple">
+      <body className={`${majorMonoDisplay.className}`}>
         {children}
       </body>
     </html>
