@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Major_Mono_Display } from "next/font/google";
+import { Sono } from "next/font/google";
 import "./globals.css";
 
 
-const majorMonoDisplay = Major_Mono_Display({
-  weight: '400', // only one weight available for this font
+const sono = Sono({
+  weight: ['300', '400', '500'], // choose the weights you need
   subsets: ['latin'],
 })
 
@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-theme="dim" className="bg-mcgoo-orange-to-purple">
-      <body className={`${majorMonoDisplay.className}`}>
+      <body className={`${sono.className}`}>
         {children}
       </body>
     </html>

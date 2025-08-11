@@ -16,8 +16,8 @@ export default function Home() {
               </li>
             </ul>
             <div className="mt-6">
-              <button className="btn btn-primary btn-block w-20">
-               Does nothign
+              <button className="btn btn-primary btn-block w-40">
+               Does nothing
               </button>
             </div>
           </div>
