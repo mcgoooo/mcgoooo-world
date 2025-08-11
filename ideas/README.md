@@ -1,6 +1,3 @@
-# whatsMyBpm
- Take currently playing on [`spotify`,`tidal`] show currently playing bpm, and links to all available services, this will require a user account
-
 # deleteMyMusic
 
 the first app will be in the same vain as [sort Your Music](http://sortyourmusic.playlistmachinery.com/) and [Tune My Music](https://www.tunemymusic.com/) and it will be called `delete your music` and will have one purpose. 
