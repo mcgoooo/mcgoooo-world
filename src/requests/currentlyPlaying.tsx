@@ -5,7 +5,9 @@ import { cookies } from "next/headers";
 
 export default async function currentlyPlaying() {
   const token = (await cookies()).get("spotify_access_token")?.value;
-
+  if (!token) {
+    throw new Error("No Spotify access token found in cookies");
+  }
   const currentlyPlaying = await fetch(
     "http://127.0.0.1:8787/currently-playing",
     {
