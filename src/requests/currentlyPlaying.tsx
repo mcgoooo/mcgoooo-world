@@ -12,7 +12,7 @@ export default async function currentlyPlaying() {
     throw new Error("No Spotify access token found in cookies");
   }
   const currentlyPlaying = await fetch(
-    "https://mcgoooo.world/currently-playing",
+    "https://spotify.mcgoooo.world/currently-playing",
     {
       method: "get",
       headers: {
@@ -20,7 +20,6 @@ export default async function currentlyPlaying() {
       },
     },
   );
-  console.log(await currentlyPlaying.text())
   const json = (await currentlyPlaying.json()) as CurrentlyPlaying;
 
   return json
