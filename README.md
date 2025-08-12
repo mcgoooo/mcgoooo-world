@@ -9,7 +9,7 @@ Primarily as an outlet for storing and displaying my own creative output.
 
 ## Copy dev ENV vars, and then edit.
 ```
-cp .dev.vars.example .dev.vars
+cp .env.local.example .env.local
 ```
 
 install prerequisites
