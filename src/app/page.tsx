@@ -1,4 +1,4 @@
-import currentlyPlaying from "@/requests/currentlyPlaying";
+import currentlyPlaying from "../requests/currentlyPlaying";
 
 export default async function Home() {
   const current = await currentlyPlaying();
