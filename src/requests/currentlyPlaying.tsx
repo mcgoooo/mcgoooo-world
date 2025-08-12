@@ -4,10 +4,15 @@ import { type CurrentlyPlaying } from "@/types/CurrentlyPlaying";
 import { cookies } from "next/headers";
 
 export default async function currentlyPlaying() {
+      const allCookies = (await cookies()).getAll()
+    console.log("All cookies:", allCookies);
   const token = (await cookies()).get("spotify_access_token")?.value;
+  if (!token) {
 
+    throw new Error("No Spotify access token found in cookies");
+  }
   const currentlyPlaying = await fetch(
-    "http://127.0.0.1:8787/currently-playing",
+    "https://mcgoooo.world/currently-playing",
     {
       method: "get",
       headers: {
@@ -15,6 +20,8 @@ export default async function currentlyPlaying() {
       },
     },
   );
+  console.log(await currentlyPlaying.text())
   const json = (await currentlyPlaying.json()) as CurrentlyPlaying;
+
   return json
 }
