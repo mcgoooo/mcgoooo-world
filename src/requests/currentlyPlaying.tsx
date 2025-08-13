@@ -14,7 +14,6 @@ export default async function currentlyPlaying() {
     method: "get",
     headers: {
       Cookie: "spotify_access_token=" + token!,
-    },
   });
   const json = (await currentlyPlaying.json()) as CurrentlyPlaying;
 
