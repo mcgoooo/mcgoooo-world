@@ -6,8 +6,8 @@ export default async function Home() {
     <>
       <h1 className="text-4xl text-center text-success mb-6">Whats My Bpm</h1>
       <h1 className="text-xl text-center text-success mb-6">it is 126BPM</h1>
-      <section>
-        <div className="card w-full shadow-sm bg-secondary mb-4">
+      <section className="flex flex-col items-center">
+        <div className="card max-w-lg shadow-sm bg-secondary mb-4">
           <div className="card-body">
               <h2 className="text-xl font-bold">
                 {current.album.artists.map((artist)=> 
