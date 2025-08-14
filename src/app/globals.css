@@ -14,8 +14,12 @@
   --color-primary: oklch(59.474% 0.11366 170.662);
   --color-secondary: rgba(255, 125, 93, 0.8);
   --bg-purple: rgba(104, 36, 140, 1);
+  --bg-purple-super-faded: rgba(104, 36, 140, 0.1);
+
   --bg-purple-dark: rgba(34, 0, 34, 1);
   --bg-orange:  rgba(255, 120, 45, 0.9);
+  --bg-orange-super-faded: rgba(255, 120, 45, 0.5);
+
   .btn-primary {
     --btn-fg: #fff;
     border: 1px solid var(--color-base-faded);
@@ -35,8 +39,23 @@ section {
   background-color: var(--bg-purple);
 }
 
+.bg-mcgoo-fade {
+  background-color: var(--bg-purple-super-faded);
+}
+
+
 .bg-mcgoo-orange {
   background-color: var(--bg-orange);
+}
+
+.bg-mcgoo-purple-to-orange-super-fade {
+  background: linear-gradient(
+  to bottom,
+  var(--bg-purple) 0%,
+  var(--bg-purple-super-faded) 15%,
+  var(--bg-purple-super-faded) 100%
+);
+border-radius: 0.25rem;
 }
 
 .bg-mcgoo-orange-to-purple {
@@ -45,7 +64,7 @@ background: linear-gradient(
   var(--bg-orange) 0%,
   var(--bg-purple) 20%,
   var(--bg-purple) 25%,
-  var(--bg-purple-dark) 50%,
+  var(--bg-purple-dark) 90%,
   var(--bg-purple-dark) 100%
 );
 }
