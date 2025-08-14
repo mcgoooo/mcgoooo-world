@@ -1,6 +1,6 @@
 "use server";
 
-import { type SpotifyUser } from "@/types/SpotifyUser";
+import { type SpotifyUser } from "@/types/Spotify/User";
 import { spotifyUserUrl } from "./urls";
 import { isAuthedForSpotify, spotifyGetOptions } from "./utils";
 

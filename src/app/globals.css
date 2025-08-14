@@ -9,7 +9,7 @@
 [data-theme="dim"] {
   --radius-box: 0.2rem;
   --theme-primary: #fff --theme-secondary: #ff782d;
-  --color-base-content: #8f1d58;
+  --color-base-content: rgba(255, 125, 93, 1);;
   --color-base-faded: rgba(123, 29, 88, 0.5);
   --color-primary: oklch(59.474% 0.11366 170.662);
   --color-secondary: rgba(255, 125, 93, 0.8);
@@ -19,6 +19,7 @@
   --bg-purple-dark: rgba(34, 0, 34, 1);
   --bg-orange:  rgba(255, 120, 45, 0.9);
   --bg-orange-super-faded: rgba(255, 120, 45, 0.5);
+  --playlist-image-size: 90px;
 
   .btn-primary {
     --btn-fg: #fff;
