@@ -13,7 +13,8 @@
     "deploy": {
       "dependsOn": ["^deploy"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
-      "outputs": ["dist/**", ".next/**", "!.next/cache/**","open-next/**"]
+      "outputs": ["dist/**", ".next/**", "!.next/cache/**","open-next/**"],
+      "env": ["CLOUDFLARE_API_TOKEN", "CLOUDFLARE_ACCOUNT_ID"]
     },
     "check-types": {
       "dependsOn": ["^check-types"]
