@@ -1,4 +1,4 @@
-name: Deploy preview & e2e
+name: Deploy preview
 on:
   pull_request:
     types: [opened, synchronize, reopened, closed]
@@ -26,10 +26,10 @@ jobs:
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
-  e2e:
-    needs: deploy-preview-version
-    name: E2E Tests
-    uses: mcgoooo/mcgoooo-world/.github/workflows/e2e.yaml@main
-    with:
-      playwright-base-url: ${{needs.deploy-preview-version.outputs.url}}
+  # e2e:
+  #   needs: deploy-preview-version
+  #   name: E2E Tests
+  #   uses: mcgoooo/mcgoooo-world/.github/workflows/e2e.yaml@main
+  #   with:
+  #     playwright-base-url: ${{needs.deploy-preview-version.outputs.url}}
       
