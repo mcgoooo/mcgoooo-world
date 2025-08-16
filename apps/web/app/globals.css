@@ -1,26 +1,71 @@
 @import "tailwindcss";
-@import "@repo/tailwind-config";
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@plugin "daisyui" {
+  themes:
+    light --default,
+    dark --prefersdark,
+    dim;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+[data-theme="dim"] {
+  --radius-box: 0.2rem;
+  --theme-primary: #fff --theme-secondary: #ff782d;
+  --color-base-content: rgba(255, 125, 93, 1);;
+  --color-base-faded: rgba(123, 29, 88, 0.5);
+  --color-primary: oklch(59.474% 0.11366 170.662);
+  --color-secondary: rgba(255, 125, 93, 0.8);
+  --bg-purple: rgba(104, 36, 140, 1);
+  --bg-purple-super-faded: rgba(104, 36, 140, 0.1);
+
+  --bg-purple-dark: rgba(34, 0, 34, 1);
+  --bg-orange:  rgba(255, 120, 45, 0.9);
+  --bg-orange-super-faded: rgba(255, 120, 45, 0.5);
+  --playlist-image-size: 90px;
+
+  .btn-primary {
+    --btn-fg: #fff;
+    border: 1px solid var(--color-base-faded);
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
+html {
+  padding: 2rem;
+  min-height: 100%;
+}
+
+section {
+  padding-bottom: 4rem;
+}
+
+.bg-mcgoo-purple {
+  background-color: var(--bg-purple);
+}
+
+.bg-mcgoo-fade {
+  background-color: var(--bg-purple-super-faded);
+}
+
+
+.bg-mcgoo-orange {
+  background-color: var(--bg-orange);
+}
+
+.bg-mcgoo-purple-to-orange-super-fade {
   background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  to bottom,
+  var(--bg-purple) 0%,
+  var(--bg-purple-super-faded) 15%,
+  var(--bg-purple-super-faded) 100%
+);
+border-radius: 0.25rem;
+}
+
+.bg-mcgoo-orange-to-purple {
+background: linear-gradient(
+  to bottom,
+  var(--bg-orange) 0%,
+  var(--bg-purple) 20%,
+  var(--bg-purple) 25%,
+  var(--bg-purple-dark) 90%,
+  var(--bg-purple-dark) 100%
+);
 }

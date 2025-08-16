@@ -4,11 +4,22 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "next dev --port 3001 --turbopack",
+    "dev": "next dev --turbopack",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint --max-warnings 0",
-    "check-types": "tsc --noEmit"
+    "start": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
+    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+    "deploy:version": "opennextjs-cloudflare build && npx wrangler versions upload",
+    "cf-typegen": "wrangler types --env-interface CloudflareEnv ./cloudflare-env.d.ts",
+    "check-types": "tsc --noEmit",
+    "e2e": "npx playwright test",
+    "e2e:headed": "npx playwright test --ui",
+    "e2e:ci": "npm run e2e",
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "playwright:install": "npx playwright install --with-deps chromium",
+    "test": "jest --forceExit --detectOpenHandles",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@repo/ui": "*",
