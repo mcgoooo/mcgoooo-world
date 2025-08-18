@@ -4,7 +4,7 @@
  */
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "mcgoooo-world",
+	"name": "mcgoooo-world-staging",
 	"main": ".open-next/worker.js",
 	"compatibility_date": "2025-03-01",
 	"compatibility_flags": [
@@ -20,7 +20,7 @@
 	},
 	"routes": [
     {
-      "pattern": "mcgoooo.world",
+      "pattern": "staging.mcgoooo.world",
       "custom_domain": true
     }
   ]
