@@ -2,7 +2,7 @@ name: Deploy Production
 on:
   push:
     branches:
-      - add-deploy
+      - main
 
 jobs:
   deploy-production:
@@ -10,6 +10,11 @@ jobs:
     name: 🟧 Test & Deploy production 🟧
     steps:
       - uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm' 
       - name: install
         run: npm ci
       - name: Deploy

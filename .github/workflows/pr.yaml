@@ -10,26 +10,18 @@ jobs:
       url: ${{ steps.deploy.outputs.url }}
     steps:
       - uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm' 
       - name: Install
         run: npm ci
-      # - name: Test
-      #   run: npm run test
-      # - name: Lint
-      #   run: npm run lint
+ 
       - name: Deploy
         id: deploy
         run: | 
           npm run deploy:version
-          PREVIEW_URL=$(cat /home/runner/.config/.wrangler/logs/* | sed -n '/workers.dev/p' | sed 's/Version Preview URL: //')
-          echo "url=$PREVIEW_URL" >> "$GITHUB_OUTPUT"          
-          echo "PREVIEW_URL: $PREVIEW_URL"
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
-  # e2e:
-  #   needs: deploy-preview-version
-  #   name: E2E Tests
-  #   uses: mcgoooo/mcgoooo-world/.github/workflows/e2e.yaml@main
-  #   with:
-  #     playwright-base-url: ${{needs.deploy-preview-version.outputs.url}}
-      
