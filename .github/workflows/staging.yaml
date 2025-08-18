@@ -1,13 +1,13 @@
-name: Deploy Production
+name: Deploy Staging
 on:
   push:
     branches:
       - stage
 
 jobs:
-  deploy-production:
+  deploy-stage:
     runs-on: ubuntu-latest
-    name: 🟧 Test & Deploy production 🟧
+    name: 🟢 Test & Deploy Staging 🟢
     steps:
       - uses: actions/checkout@v4
       - name: Setup Node.js
