@@ -5,7 +5,7 @@
     "dev": "wrangler dev",
     "deploy": "wrangler deploy --minify",
     "deploy:staging": "wrangler deploy --minify --config wrangler.staging.jsonc",
-    "deploy:version": "wrangler versions upload --minify",
+    "deploy:version": "wrangler versions upload --minify --config wrangler.staging.jsonc",
     "cf-typegen": "wrangler types --env-interface CloudflareBindings"
   },
   "dependencies": {
